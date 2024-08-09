@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System using Javascript</title>
+</head>
+<body>
+    <h1>Voting System using Javascript</h1>
+    <h2>Vote by Email</h2>
+    <input type="email" id="email" /> <br>
+    Your Vote:
+    <select id="vote">
+        <option value="Option1">1st Choice</option>
+        <option value="Option2">2nd Choice</option>
+        <option value="Option3">3rd Choice</option>
+        <option value="Option4">4thChoice</option>
+
+    </select>
+    <br>
+    <button onclick="submitvote()">Vote</button>
+
+    <h2>Results: </h2>
+    <p>1st Choice: <span id="option1Count">0</span></p>
+    <p>2nd Choice: <span id="option2Count">0</span></p>
+    <p>3rd Choice: <span id="option3Count">0</span></p>
+    <p>4th Choice: <span id="option4Count">0</span></p>
+    
+    <script>
+function submitvote(){
+    let email = document.getElementById('email').value;
+    let vote = document.getElementById('vote').value;
+
+    // to check if the email has a vote
+    if(localStorage.getItem(email)){
+        alert('This email has already voted.');
+    }else{
+        // you can store the vote 
+        localStorage.setItem(email, vote);
+        alert('Your vote has been submitted successfully');
+        updateResults();
+    }
+}
+function updateResults(){
+    let counts = {option1:0, option2:0, option3:0, option4:0};
+    // count the vote
+    for(let i=0; i<localStorage.length; i++){
+        let key = localStorage.key(i);
+        let vote = localStorage.getItem(key);
+        // for string comparision please to get accurate result
+        vote = vote.toLowerCase(); 
+        // increment
+        counts[vote]++;
+        // console.log("Calculated counts:", counts);
+    }
+    // update the display result
+    document.getElementById('option1Count').innerText = counts['option1']; 
+    document.getElementById('option2Count').innerText = counts['option2']; 
+    document.getElementById('option3Count').innerText = counts['option3']; 
+    document.getElementById('option4Count').innerText = counts['option4']; 
+
+
+}
+// update the result when the page loads
+updateResults();
+    </script>
+</body>
+</html>
