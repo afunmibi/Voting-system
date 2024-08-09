@@ -23,3 +23,12 @@ button{
     color: white;
     cursor: pointer;
 }
+@media (max-width:768px) {
+    .container{
+        width: 80%;
+        padding: 5px;
+        margin: 20px;
+        overflow-x: hidden;
+    }
+    
+}
