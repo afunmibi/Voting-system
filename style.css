@@ -1,0 +1,25 @@
+.container{
+    width: 500px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 50px;
+    box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    text-align: center;
+
+}
+body{
+    background-color: lightgray;
+}
+#vote{
+    margin-bottom: 10px;
+}
+button{
+    width: 70px;
+    height: 40px;
+    padding: 10px;
+    background-color: lightseagreen;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
